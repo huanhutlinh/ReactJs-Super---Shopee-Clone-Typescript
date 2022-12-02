@@ -1,0 +1,6 @@
+- nvm: node version manager
+- npm: node package manager
+
+- npm i package --save-dev: devDependencies  --- yarn add package -D
+- npm uninstall package
+
