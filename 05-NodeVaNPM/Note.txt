@@ -4,3 +4,5 @@
 - npm i package --save-dev: devDependencies  --- yarn add package -D
 - npm uninstall package
 
+Webpack:
+- yarn add webpack webpack-cli -D
