@@ -16,16 +16,16 @@
 **`webpack.config.js`**
 
 ```js
-const path = require('path')
+const path = require("path");
 module.exports = {
-  mode: 'development',
+  mode: "development",
   entry: {
-    app: path.resolve('src/index.js')
+    app: path.resolve("src/index.js"),
   },
   output: {
-    path: path.resolve(__dirname, 'dist')
-  }
-}
+    path: path.resolve(__dirname, "dist"),
+  },
+};
 ```
 
 ## Sử dụng các Loaders và biên dịch SASS
@@ -39,24 +39,24 @@ module.exports = {
 **`webpack.config.js`**
 
 ```js
-const path = require('path')
+const path = require("path");
 module.exports = {
-  mode: 'development',
+  mode: "development",
   entry: {
-    app: path.resolve('src/index.js')
+    app: path.resolve("src/index.js"),
   },
   output: {
-    path: path.resolve(__dirname, 'dist')
+    path: path.resolve(__dirname, "dist"),
   },
   module: {
     rules: [
       {
         test: /\.s[ac]ss|css$/,
-        use: ['style-loader', 'css-loader', 'sass-loader']
-      }
-    ]
-  }
-}
+        use: ["style-loader", "css-loader", "sass-loader"],
+      },
+    ],
+  },
+};
 ```
 
 ## Sử dụng HTML Webpack Plugin để tự động tạo ra file HTML
@@ -68,35 +68,37 @@ module.exports = {
 **`webpack.config.js`**
 
 ```js
-const path = require('path')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-  mode: 'production',
+  mode: "production",
   entry: {
-    app: path.resolve('src/index.js')
+    app: path.resolve("src/index.js"),
   },
   output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: '[name].js'
+    path: path.resolve(__dirname, "dist"),
+    filename: "[name].js",
   },
   module: {
     rules: [
       {
         test: /\.s[ac]ss|css$/,
-        use: ['style-loader', 'css-loader', 'sass-loader']
-      }
-    ]
+        use: ["style-loader", "css-loader", "sass-loader"],
+      },
+    ],
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'Webpack App',
-      filename: 'index.html',
-      template: 'src/template.html'
-    })
-  ]
-}
+      title: "Webpack App",
+      filename: "index.html",
+      template: "src/template.html",
+    }),
+  ],
+};
 ```
+
+05-Tách CSS ra những file riêng
 
 ## Tách CSS ra những file riêng
 
@@ -118,37 +120,39 @@ module.exports = {
 **`webpack.config.js`**
 
 ```js
-const path = require('path')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
-  mode: 'production',
+  mode: "production",
   entry: {
-    app: path.resolve('src/index.js')
+    app: path.resolve("src/index.js"),
   },
   output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: '[name].js'
+    path: path.resolve(__dirname, "dist"),
+    filename: "[name].js",
   },
   module: {
     rules: [
       {
         test: /\.s[ac]ss|css$/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
-      }
-    ]
+        use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
+      },
+    ],
   },
   plugins: [
     new MiniCssExtractPlugin(),
     new HtmlWebpackPlugin({
-      title: 'Webpack App',
-      filename: 'index.html',
-      template: 'src/template.html'
-    })
-  ]
-}
+      title: "Webpack App",
+      filename: "index.html",
+      template: "src/template.html",
+    }),
+  ],
+};
 ```
+
+//05-Tách CSS ra những file riêng
 
 ## Xử lý caching ở trình duyệt bằng hash name file
 
@@ -158,38 +162,38 @@ module.exports = {
 **`webpack.config.js`**
 
 ```js
-const path = require('path')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
-  mode: 'production',
+  mode: "production",
   entry: {
-    app: path.resolve('src/index.js')
+    app: path.resolve("src/index.js"),
   },
   output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: '[name].[contenthash].js'
+    path: path.resolve(__dirname, "dist"),
+    filename: "[name].[contenthash].js",
   },
   module: {
     rules: [
       {
         test: /\.s[ac]ss|css$/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
-      }
-    ]
+        use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
+      },
+    ],
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: '[name].[contenthash].css'
+      filename: "[name].[contenthash].css",
     }),
     new HtmlWebpackPlugin({
-      title: 'Webpack App',
-      filename: 'index.html',
-      template: 'src/template.html'
-    })
-  ]
-}
+      title: "Webpack App",
+      filename: "index.html",
+      template: "src/template.html",
+    }),
+  ],
+};
 ```
 
 ## Tạo một server bằng webpack để dev
@@ -206,48 +210,48 @@ module.exports = {
 **`webpack.config.js`**
 
 ```js
-const path = require('path')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
-  mode: 'production',
+  mode: "production",
   entry: {
-    app: path.resolve('src/index.js')
+    app: path.resolve("src/index.js"),
   },
   output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: '[name].[contenthash].js'
+    path: path.resolve(__dirname, "dist"),
+    filename: "[name].[contenthash].js",
   },
   module: {
     rules: [
       {
         test: /\.s[ac]ss|css$/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
-      }
-    ]
+        use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
+      },
+    ],
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: '[name].[contenthash].css'
+      filename: "[name].[contenthash].css",
     }),
     new HtmlWebpackPlugin({
-      title: 'Webpack App',
-      filename: 'index.html',
-      template: 'src/template.html'
-    })
+      title: "Webpack App",
+      filename: "index.html",
+      template: "src/template.html",
+    }),
   ],
   devServer: {
     static: {
-      directory: 'dist' // Đường dẫn tương đối đến với thư mục chứa index.html
+      directory: "dist", // Đường dẫn tương đối đến với thư mục chứa index.html
     },
     port: 3000, // Port thay cho port mặc định (8080)
     open: true, // Mở trang webpack khi chạy terminal
     hot: true, // Bật tính năng reload nhanh Hot Module Replacement
     compress: true, // Bật Gzip cho các tài nguyên
-    historyApiFallback: true // Set true nếu bạn dùng cho các SPA và sử dụng History API của HTML5
-  }
-}
+    historyApiFallback: true, // Set true nếu bạn dùng cho các SPA và sử dụng History API của HTML5
+  },
+};
 ```
 
 ## Dọn dẹp thư mục build
@@ -266,53 +270,53 @@ module.exports = {
 **`webpack.config.js`**
 
 ```js
-const path = require('path')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = (env) => {
-  const isDevelopment = Boolean(env.development)
+  const isDevelopment = Boolean(env.development);
   return {
-    mode: isDevelopment ? 'development' : 'production',
+    mode: isDevelopment ? "development" : "production",
     entry: {
-      app: path.resolve('src/index.js')
+      app: path.resolve("src/index.js"),
     },
     output: {
-      path: path.resolve(__dirname, 'dist'),
-      filename: '[name].[contenthash].js',
-      clean: true
+      path: path.resolve(__dirname, "dist"),
+      filename: "[name].[contenthash].js",
+      clean: true,
     },
-    devtool: isDevelopment ? 'source-map' : false,
+    devtool: isDevelopment ? "source-map" : false,
     module: {
       rules: [
         {
           test: /\.s[ac]ss|css$/,
-          use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
-        }
-      ]
+          use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
+        },
+      ],
     },
     plugins: [
       new MiniCssExtractPlugin({
-        filename: '[name].[contenthash].css'
+        filename: "[name].[contenthash].css",
       }),
       new HtmlWebpackPlugin({
-        title: 'Webpack App',
-        filename: 'index.html',
-        template: 'src/template.html'
-      })
+        title: "Webpack App",
+        filename: "index.html",
+        template: "src/template.html",
+      }),
     ],
     devServer: {
       static: {
-        directory: 'dist' // Đường dẫn tương đối đến với thư mục chứa index.html
+        directory: "dist", // Đường dẫn tương đối đến với thư mục chứa index.html
       },
       port: 3000, // Port thay cho port mặc định
       open: true, // Mở trang webpack khi chạy terminal
       hot: true, // Bật tính năng reload nhanh Hot Module Replacement
       compress: true, // Bật Gzip cho các tài nguyên
-      historyApiFallback: true // Set true nếu bạn dùng cho các SPA và sử dụng History API của HTML5
-    }
-  }
-}
+      historyApiFallback: true, // Set true nếu bạn dùng cho các SPA và sử dụng History API của HTML5
+    },
+  };
+};
 ```
 
 ## Dùng Babel để dịch code JS thành các phiên bản cũ hơn
@@ -370,7 +374,7 @@ module.exports = (env) => {
 - Ở phần [doc `targets` của @babel/preset-env](https://babeljs.io/docs/en/babel-preset-env#targets) thì chúng ta có thể truyền thằng targets vào cái option này kiểu như phía dưới
 
 ```js
-presets: [['@babel/preset-env', { targets: 'ie 11' }]]
+presets: [["@babel/preset-env", { targets: "ie 11" }]];
 ```
 
 - Nhưng theo mình test thì nó không hiệu quả, arrow function vẫn xuất hiển ở file build cho **ie 11**. Có vẻ cái targets option này không hoạt động tốt đối với những trình duyệt cũ. Nhưng nếu chúng ta làm theo [doc nó recommend là tạo file `.browserslistrc`](https://babeljs.io/docs/en/babel-preset-env#browserslist-integration) để setting cho cái targets thì lại hoạt động tốt.
@@ -393,9 +397,9 @@ ie 11
 
 ```js
 // ES6 Spread Operator
-const person = { name: 'Duoc' }
-const personClone = { ...person }
-console.log('personClone', personClone)
+const person = { name: "Duoc" };
+const personClone = { ...person };
+console.log("personClone", personClone);
 ```
 
 **`webpack.config.js`**
@@ -407,13 +411,13 @@ module: {
       test: /\.js$/,
       exclude: /node_modules/,
       use: {
-        loader: 'babel-loader',
+        loader: "babel-loader",
         options: {
-          presets: [['@babel/preset-env']]
-        }
-      }
-    }
-  ]
+          presets: [["@babel/preset-env"]],
+        },
+      },
+    },
+  ];
 }
 ```
 
@@ -425,12 +429,12 @@ module: {
 
 ```js
 // ES6 Spread Operator
-const person = { name: 'Duoc' }
-const personClone = { ...person }
-console.log('personClone', personClone)
+const person = { name: "Duoc" };
+const personClone = { ...person };
+console.log("personClone", personClone);
 
 // ES7 Object.values
-console.log('Object.values', Object.values(personClone))
+console.log("Object.values", Object.values(personClone));
 ```
 
 **`webpack.config.js`**
@@ -442,22 +446,22 @@ module: {
       test: /\.js$/,
       exclude: /node_modules/,
       use: {
-        loader: 'babel-loader',
+        loader: "babel-loader",
         options: {
           presets: [
             [
-              '@babel/preset-env',
+              "@babel/preset-env",
               {
                 debug: true, // Hiển thị debug lên terminal để dễ debug
-                useBuiltIns: 'usage', // Dùng cái này thì đơn giản nhất, không cần import core-js vào code
-                corejs: '3.23.4' // nên quy định verson core-js để babel-preset-env nó hoạt động tối ưu
-              }
-            ]
-          ]
-        }
-      }
-    }
-  ]
+                useBuiltIns: "usage", // Dùng cái này thì đơn giản nhất, không cần import core-js vào code
+                corejs: "3.23.4", // nên quy định verson core-js để babel-preset-env nó hoạt động tối ưu
+              },
+            ],
+          ],
+        },
+      },
+    },
+  ];
 }
 ```
 
@@ -466,20 +470,20 @@ Ngoài ra để cho thuận tiện việc tối ưu kích thước file build b�
 **`index.js`**
 
 ```js
-import 'core-js/modules/es.object.values'
-import 'core-js/modules/es.promise'
+import "core-js/modules/es.object.values";
+import "core-js/modules/es.promise";
 
-import sum from './utils'
-import './styles/style.css'
-import './styles/style.scss'
-console.log(sum(100, 10))
+import sum from "./utils";
+import "./styles/style.css";
+import "./styles/style.scss";
+console.log(sum(100, 10));
 // ES6 Spread Operator
-const person = { name: 'Duoc' }
-const personClone = { ...person }
-console.log('personClone', personClone)
+const person = { name: "Duoc" };
+const personClone = { ...person };
+console.log("personClone", personClone);
 
 // ES7 Object.values
-console.log('Object.values', Object.values(personClone))
+console.log("Object.values", Object.values(personClone));
 ```
 
 ## [Sử dụng các tài nguyên như ảnh trong webpack](https://webpack.js.org/guides/asset-modules/)
@@ -490,34 +494,34 @@ console.log('Object.values', Object.values(personClone))
 
 ```css
 @font-face {
-  font-family: 'Roboto';
-  src: url('../fonts/Roboto-Regular.ttf') format('truetype');
+  font-family: "Roboto";
+  src: url("../fonts/Roboto-Regular.ttf") format("truetype");
   font-weight: 400;
 }
 
 body {
   background-color: aqua;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 ```
 
 **`dom.js`**
 
 ```js
-import wallpaper from './images/pexels-maxime-francis.jpg'
-import bitcoinWhitepaper from './pdfs/bitcoin.pdf'
+import wallpaper from "./images/pexels-maxime-francis.jpg";
+import bitcoinWhitepaper from "./pdfs/bitcoin.pdf";
 
 const domHandler = () => {
-  console.log(wallpaper)
-  console.log(bitcoinWhitepaper)
-  document.body.style.backgroundImage = `url(${wallpaper})`
-  const link = document.createElement('a')
-  link.href = bitcoinWhitepaper
-  link.textContent = 'Bitcoin Whitepaper'
-  document.body.appendChild(link)
-}
+  console.log(wallpaper);
+  console.log(bitcoinWhitepaper);
+  document.body.style.backgroundImage = `url(${wallpaper})`;
+  const link = document.createElement("a");
+  link.href = bitcoinWhitepaper;
+  link.textContent = "Bitcoin Whitepaper";
+  document.body.appendChild(link);
+};
 
-export default domHandler
+export default domHandler;
 ```
 
 **`webpack.config.js`**
@@ -526,20 +530,20 @@ export default domHandler
 module.exports = {
   //...
   output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: '[name].[contenthash].js',
+    path: path.resolve(__dirname, "dist"),
+    filename: "[name].[contenthash].js",
     clean: true,
-    assetModuleFilename: '[file]'
+    assetModuleFilename: "[file]",
   },
   module: {
     rules: [
       {
         test: /\.(png|svg|jpg|jpeg|gif|pdf)$/i,
-        type: 'asset/resource'
-      }
-    ]
-  }
-}
+        type: "asset/resource",
+      },
+    ],
+  },
+};
 ```
 
 - Mình không bỏ phần mở rộng của file font vào `test` font mình import trong file css và webpack nó tự động load cho mình rồi.
@@ -569,27 +573,27 @@ Tham khảo cách viết template string cho [filename](https://webpack.js.org/c
 
 ```js
 const BundleAnalyzerPlugin =
-  require('webpack-bundle-analyzer').BundleAnalyzerPlugin
+  require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 
 module.exports = (env) => {
   const basePlugins = [
     new MiniCssExtractPlugin({
-      filename: '[name].[contenthash].css'
+      filename: "[name].[contenthash].css",
     }),
     new HtmlWebpackPlugin({
-      title: 'Webpack App',
-      filename: 'index.html',
-      template: 'src/template.html'
-    })
-  ]
+      title: "Webpack App",
+      filename: "index.html",
+      template: "src/template.html",
+    }),
+  ];
 
-  const isDevelopment = Boolean(env.development)
+  const isDevelopment = Boolean(env.development);
   const plugins = isDevelopment
     ? basePlugins
-    : [...basePlugins, new BundleAnalyzerPlugin()]
+    : [...basePlugins, new BundleAnalyzerPlugin()];
   return {
     //...
-    plugins
-  }
-}
+    plugins,
+  };
+};
 ```
