@@ -6,3 +6,5 @@
 
 Webpack:
 - yarn add webpack webpack-cli -D
+
+- yarn add style-loader css-loader -D
