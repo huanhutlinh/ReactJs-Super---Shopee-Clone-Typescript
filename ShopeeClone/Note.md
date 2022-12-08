@@ -1,0 +1,4 @@
+- yarn create vite: để khởi tạo project vs vite
+- cd ShopeeClone
+- yarn
+- yarn dev
