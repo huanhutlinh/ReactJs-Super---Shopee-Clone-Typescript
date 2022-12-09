@@ -20,6 +20,8 @@
   },
   "devDependencies": {
     "@hookform/resolvers": "^2.9.10",
+    "@tanstack/react-query": "^4.19.1",
+    "@tanstack/react-query-devtools": "^4.19.1",
     "@types/node": "^18.11.11",
     "@types/react": "^18.0.24",
     "@types/react-dom": "^18.0.8",
@@ -27,6 +29,7 @@
     "@typescript-eslint/parser": "^5.46.0",
     "@vitejs/plugin-react": "^2.2.0",
     "autoprefixer": "^10.4.13",
+    "axios": "^1.2.1",
     "eslint": "^8.29.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-import": "^2.26.0",
